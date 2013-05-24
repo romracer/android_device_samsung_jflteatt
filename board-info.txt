@@ -1,2 +1,0 @@
-require version-bootloader=I337UCUAMDB|I337UCUAMDL
-
