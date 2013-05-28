@@ -18,6 +18,6 @@ egrep -q '(bootloader=I337UCUAMDB)|(bootloader=I337UCUAMDL)|(bootloader=I545VRUA
 if [ $? -eq 0 ];then
   dd if=/dev/block/platform/msm_sdcc.1/by-name/aboot of=$C/aboot.img
   /tmp/loki_patch boot $C/aboot.img /tmp/boot.img $C/boot.lok
-  flash_image boot $C/boot.lok
+  dd if=$C/boot.lok of=/dev/block/mmcblk0p20
   rm -rf $C
 fi
