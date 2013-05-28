@@ -12,22 +12,12 @@
 # Bootloader Version I337UCUAMDL (AT&T)
 # Bootloader Version I545VRUAMDK (Verizon)
 
-cat /proc/cmdline|egrep -q '(bootloader=I337UCUAMDB)|(bootloader=I337UCUAMDL)|(bootloader=I545VRUAMDK)'
-if [ $? = 0 ];
-    then
-       cd /tmp
-       chmod 777 loki_patch
-       dd if=/dev/block/platform/msm_sdcc.1/by-name/aboot of=aboot.img
-       ./loki_patch boot aboot.img boot.img boot.lok
-        flash_image boot boot.lok
-# cleanup
-       rm loki_patch
-       rm *.img
-       rm *.lok
-       rm /system/bin/loki*
+export C=/tmp/loki_patch
 
+egrep -q '(bootloader=I337UCUAMDB)|(bootloader=I337UCUAMDL)|(bootloader=I545VRUAMDK)' /proc/cmdline
+if [ $? -eq 0 ];then
+  dd if=/dev/block/platform/msm_sdcc.1/by-name/aboot of=$C/aboot.img
+  /tmp/loki_patch boot $C/aboot.img /tmp/boot.img $C/boot.lok
+  flash_image boot $C/boot.lok
+  rm -rf $C
 fi
-
-
-
-

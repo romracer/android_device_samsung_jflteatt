@@ -24,10 +24,3 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/jf-common/overlay-gsm
 
 # Inherit from jf-common
 $(call inherit-product, device/samsung/jf-common/jf-common.mk)
-
-# NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/samsung/jflteatt/nfc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := device/samsung/jflteatt/nfc/nfcee_access_debug.xml
-endif
