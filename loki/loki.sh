@@ -16,6 +16,7 @@ export C=/tmp/loki_patch
 
 egrep -q '(bootloader=I337UCUAMDB)|(bootloader=I337UCUAMDL)|(bootloader=I545VRUAMDK)' /proc/cmdline
 if [ $? -eq 0 ];then
+  mkdir -p $C
   dd if=/dev/block/platform/msm_sdcc.1/by-name/aboot of=$C/aboot.img
   /tmp/loki_patch boot $C/aboot.img /tmp/boot.img $C/boot.lok
   /tmp/loki_flash boot $C/boot.lok
