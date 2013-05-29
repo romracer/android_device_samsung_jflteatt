@@ -19,7 +19,9 @@ ifneq ($(filter jflteatt,$(TARGET_DEVICE)),)
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
+LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_SRC_FILES := loki_patch.c
+LOCAL_STATIC_LIBRARIES := libc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT)/bin
 LOCAL_MODULE := loki_patch
@@ -27,7 +29,9 @@ LOCAL_MODULE_OWNER := cm
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
+LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_SRC_FILES := loki_flash.c
+LOCAL_STATIC_LIBRARIES := libc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT)/bin
 LOCAL_MODULE := loki_flash
