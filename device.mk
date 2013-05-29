@@ -22,5 +22,13 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/jflteatt/overlay
 ## common overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/jf-common/overlay-gsm
 
+# Loki
+PRODUCT_COPY_FILES += \
+    device/samsung/jflteatt/loki/loki.sh:system/bin/loki.sh
+
+PRODUCT_PACKAGES += \
+    loki_patch \
+    loki_flash
+
 # Inherit from jf-common
 $(call inherit-product, device/samsung/jf-common/jf-common.mk)

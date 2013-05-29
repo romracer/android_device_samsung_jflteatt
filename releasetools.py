@@ -36,7 +36,7 @@ def FullOTA_InstallEnd(info):
   info.script.AppendExtra('set_perm(0, 0, 0777, "/tmp/loki.sh");')
   info.script.AppendExtra('set_perm(0, 0, 0777, "/tmp/loki_patch");')
   info.script.AppendExtra('set_perm(0, 0, 0777, "/tmp/loki_flash");')
-  info.script.AppendExtra('run_program("/tmp/loki.sh");')
+  info.script.AppendExtra('assert(run_program("/tmp/loki.sh") == 0);')
   info.script.AppendExtra('delete("/system/bin/loki.sh");')
   info.script.AppendExtra('delete("/system/bin/loki_patch");')
   info.script.AppendExtra('delete("/system/bin/loki_flash");')

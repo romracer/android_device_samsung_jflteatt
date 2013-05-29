@@ -33,9 +33,3 @@ PRODUCT_DEVICE := jflteatt
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := SGH-I337
-
-# Loki
-PRODUCT_COPY_FILES += \
-    device/samsung/jflteatt/loki/loki.sh:system/bin/loki.sh \
-    device/samsung/jflteatt/loki/loki_patch:system/bin/loki_patch \
-    device/samsung/jflteatt/loki/loki_flash:system/bin/loki_flash
